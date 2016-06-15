@@ -4,6 +4,9 @@
 
 p {
   text-align: center;
+  &.lead {
+    font-size: 20px;
+  }
 }
 
 h1.name-header {
