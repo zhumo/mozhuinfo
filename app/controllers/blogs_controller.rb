@@ -8,7 +8,7 @@ class BlogsController < ApplicationController
   end
 
   def new
-    @page = NewBlogPage.new(view_context)
+    @page = Pages::Blogs::New.new(view_context)
   end
 
   def edit
@@ -16,7 +16,7 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @page = NewBlogPage.new(view_context)
+    @page = Pages::Blogs::New.new(view_context)
 
     if @page.create(blog_params)
       redirect_to @page.after_create_path, notice: 'Blog was successfully created.'

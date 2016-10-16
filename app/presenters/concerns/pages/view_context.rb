@@ -3,7 +3,7 @@ module Concerns
     module ViewContext
       include Concerns::ViewContext
 
-      delegate :link_to, to: :view_context
+      delegate :link_to, :render, :form_for, to: :view_context
     end
   end
 end
