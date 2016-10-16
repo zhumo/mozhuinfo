@@ -12,13 +12,13 @@
   </thead>
 
   <tbody>
-    <% @blogs.each do |blog| %>
+    <% @page.blogs.each do |blog| %>
       <tr>
         <td><%= blog.title %></td>
-        <td><%= blog.body %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= blog.preview %></td>
+        <td><%= @page.show_blog_button(blog) %></td>
+        <td><%= @page.edit_blog_button(blog) %></td>
+        <td><%= @page.delete_blog_button(blog) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= @page.new_blog_button %>

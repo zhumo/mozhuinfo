@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   def index
-    @page = BlogsIndexPage.new(view_context)
+    @page = Pages::Blogs::Index.new(view_context)
   end
 
   def show
