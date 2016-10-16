@@ -1,14 +1,13 @@
 module Pages
   module Blogs
-    class Index
-      include Concerns::Pages::ViewContext
+    class Index < Page
 
       def initialize(view_context)
         initialize_view_context(view_context)
       end
 
       def blogs
-        Blog.all.map do |blog_record|
+        @blogs ||= Blog.all.map do |blog_record|
           Exhibit.exhibit_for(view_context, blog_record)
         end
       end

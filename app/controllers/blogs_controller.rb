@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @page = BlogShowPage.new(view_context, blog_record)
+    @page = Pages::Blogs::Show.new(view_context, blog_record)
   end
 
   def new
