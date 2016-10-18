@@ -10,7 +10,7 @@ module Pages
         render 'form', form: form
       end
 
-      delegate :save, to: :form
+      delegate :blog_record, :save, to: :form
       alias create save
       def form
         @form ||= Pages::Blogs::Form.new(view_context)
@@ -20,8 +20,12 @@ module Pages
         link_to 'Back', view_context.blogs_path
       end
 
+      def blog
+        @blog ||= Exhibit.exhibit_for(view_context, blog_record)
+      end
+
       def after_create_path
-        form.blog.show_path
+        blog.show_path
       end
 
     end

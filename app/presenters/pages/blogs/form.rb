@@ -3,9 +3,9 @@ module Pages
     class Form < Page
       attr_reader :blog_record
 
-      def initialize(view_context)
+      def initialize(view_context, blog_record)
         initialize_view_context(view_context)
-        @blog_record = build_blog_record
+        @blog_record = blog_record || build_blog_record
       end
 
       def render_form(&block)
@@ -14,10 +14,6 @@ module Pages
 
       def render_errors(f)
         render 'shared/form_errors', errors: f.object.errors
-      end
-
-      def blog
-        @blog ||= Exhibit.exhibit_for(view_context, blog_record)
       end
 
       def build_blog_record

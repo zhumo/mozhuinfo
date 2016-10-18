@@ -12,7 +12,7 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    @page = EditBlogPage.new(view_context, blog_record)
+    @page = Pages::Blogs::Edit.new(view_context, blog_record)
   end
 
   def create
@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
   end
 
   def update
-    @page = EditBlogPage.new(view_context, blog_record)
+    @page = Pages::Blogs::Edit.new(view_context, blog_record)
 
     if @page.update(blog_params)
       redirect_to @page.after_update_path, notice: 'Blog was successfully updated.'
