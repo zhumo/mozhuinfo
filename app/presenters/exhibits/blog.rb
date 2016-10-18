@@ -21,5 +21,11 @@ module Exhibits
       route_path(:edit_blog, blog_record)
     end
 
+    class << self
+      def applicable_to?(object)
+        object.is_a?(Blog)
+      end
+    end
+
   end
 end

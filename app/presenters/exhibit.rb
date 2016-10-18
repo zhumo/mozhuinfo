@@ -10,10 +10,29 @@ class Exhibit < SimpleDelegator
   end
 
   class << self
-    def exhibit_for(view_context, model)
-      case model
-      when Blog; Exhibits::Blog.new(view_context, model)
+    def exhibits
+      [
+        Exhibits::Blog,
+      ]
+    end
+
+    def exhibit_for(view_context, object)
+      exhibits.inject(object) do |exhibit, obj|
+        exhibit.exhibit_if_applicable(view_context, obj)
       end
+    end
+
+    def exhibit_if_applicable(view_context, object)
+      if applicable_to?(object)
+        new(view_context, object)
+      else
+        object
+      end
+    end
+
+    def applicable_to?(object)
+      warn "Object with no Exhibit #{object}"
+      false
     end
 
     def exhibit_model(model_name)
