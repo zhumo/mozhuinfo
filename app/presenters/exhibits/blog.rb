@@ -23,7 +23,9 @@ module Exhibits
 
     class << self
       def applicable_to?(object)
-        object.is_a?(Blog)
+        # Simply calling Blog here refers to itself. Need to return to root namespace
+        # in order to refer to the Blog model
+        object.is_a?(::Blog)
       end
     end
 

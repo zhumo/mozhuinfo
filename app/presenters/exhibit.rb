@@ -17,7 +17,7 @@ class Exhibit < SimpleDelegator
     end
 
     def exhibit_for(view_context, object)
-      exhibits.inject(object) do |exhibit, obj|
+      exhibits.inject(object) do |obj, exhibit|
         exhibit.exhibit_if_applicable(view_context, obj)
       end
     end
