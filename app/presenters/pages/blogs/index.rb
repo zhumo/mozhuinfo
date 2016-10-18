@@ -25,7 +25,7 @@ module Pages
       end
 
       def delete_blog_button(blog)
-        link_to 'Delete', blog.delete_path
+        link_to 'Delete', blog.delete_path, method: :delete
       end
     end
   end
