@@ -9,6 +9,14 @@ class Exhibit < SimpleDelegator
     super(@model)
   end
 
+  def to_model
+    __getobj__
+  end
+
+  def class
+    __getobj__.class
+  end
+
   class << self
     def exhibits
       [
