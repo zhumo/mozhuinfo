@@ -3,7 +3,7 @@ module Pages
     class Form < Page
       attr_reader :blog_record
 
-      def initialize(view_context, blog_record)
+      def initialize(view_context, blog_record = nil)
         initialize_view_context(view_context)
         @blog_record = blog_record || build_blog_record
       end
