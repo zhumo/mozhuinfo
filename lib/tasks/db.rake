@@ -5,4 +5,12 @@ namespace :db do
     sample_data = File.join(Rails.root, 'db', 'sample_data.rb')
     load(sample_data) if sample_data
   end
+
+  desc 'rebuild the database'
+  task rebuild: %w(
+    db:drop
+    db:setup
+    db:sample_data
+    db:test:prepare
+  )
 end
