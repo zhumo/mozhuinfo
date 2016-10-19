@@ -3,16 +3,22 @@ module Concerns
     extend ActiveSupport::Concern
 
     included do
-      before_filter :require_current_user
-      helper_method :current_user
+      before_filter :require_session!
+      helper_method :authenticated?
     end
 
-    def authenticate!
-      session[:user_id]
+    def require_session!
+      unless authenticated?
+        redirect_to login_path, flash: { error: 'Please login first' }
+      end
     end
 
-    def current_user
-      if session[:writer
+    def authenticated?
+      gatekeeper.allow?
+    end
+
+    def gatekeeper
+      @gatekeeper ||= Gatekeeper.new(session_key: session[:token])
     end
   end
 end
