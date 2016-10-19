@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:token)
-    redirect_to root_path, flash: { success: 'See ya!' }
+    redirect_to :back, flash: { success: 'See ya!' }
   end
 end
