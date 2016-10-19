@@ -9,7 +9,7 @@ module Exhibits
     end
 
     def full_body
-      body
+      markdown(body)
     end
 
     def show_path

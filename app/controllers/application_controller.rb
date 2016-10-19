@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include Concerns::Authentication
+  include Concerns::Markdown
 end

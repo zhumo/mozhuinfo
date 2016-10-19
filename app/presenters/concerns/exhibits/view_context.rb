@@ -3,7 +3,7 @@ module Concerns
     module ViewContext
       include Concerns::ViewContext
 
-      delegate :truncate, to: :view_context
+      delegate :truncate, :markdown, to: :view_context
     end
   end
 end
