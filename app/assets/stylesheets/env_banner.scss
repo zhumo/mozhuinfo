@@ -1,0 +1,17 @@
+.env-banner {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+  background-color: red;
+  color: black;
+  &.env-banner--development {
+    background-color: green;
+    color: white;
+  }
+  &.env-banner--staging {
+    background-color: yellow;
+    color: black;
+  }
+}
