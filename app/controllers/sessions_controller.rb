@@ -10,4 +10,9 @@ class SessionsController < ApplicationController
       redirect_to login_path, flash: { error: 'Unable to authenticate' }
     end
   end
+
+  def destroy
+    session.delete(:token)
+    redirect_to root_path, flash: { success: 'See ya!' }
+  end
 end
