@@ -2,10 +2,8 @@ module Exhibits
   class Blog < Exhibit
     exhibit_model :blog
 
-    delegate :title, :body, to: :blog_record
-
     def preview
-      truncate(body, length: 100)
+      summary
     end
 
     def full_body
