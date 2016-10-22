@@ -2,14 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-p {
-  text-align: center;
-  &.lead {
-    font-size: 20px;
+.introduction__activities, .introduction__testimonials {
+  p {
+    text-align: center;
+    &.lead {
+      font-size: 20px;
+    }
   }
 }
 
-h1.name-header {
+.introduction__name {
   text-align: center;
   font-size: 70px;
   text-shadow: 2px 2px 5px #666;

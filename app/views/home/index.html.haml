@@ -1,20 +1,23 @@
-%h1.name-header Hi, I'm Mo
-%p I work with Ruby on Rails
-%p I play with RubyMotion & Elixir
-%p I code in Vim
-%p I collaborate with startups
-%p I live in Boston
-%p 
-  Sometimes, I 
-  = link_to 'write', blogs_path
+.introduction
+  %h1.introduction__name Hi, I'm Mo
+  .introduction__activities
+    %p.introduction__activities--activity I work with Ruby on Rails
+    %p.introduction__activities--activity I play with RubyMotion & Elixir
+    %p.introduction__activities--activity I code in Vim
+    %p.introduction__activities--activity I collaborate with startups
+    %p.introduction__activities--activity I live in Boston
+    %p.introduction__activities--activity
+      Sometimes, I 
+      = link_to 'write', blogs_path
 
-%p.lead
-  %em Here's what some colleagues say about me:
-%p.quote
-  "Mo Zhu is a highly sought after, whip smart Rails developer ... Not only does he write readable, well tested, and efficient code, but he does so in what seems like no time at all ... On one project, after he completed the server, he began learning Swift, and is now substantially contributing on the iOS side of things as well. Could not recommend him higher." 
-  %br 
-  %strong - Elliot Schrock, CTO, Trill
-%p.quote
-  "Mo worked promptly and diligently to deliver a high-quality product that to date has worked magnificently.  Unlike other developers out there, Mo does not operate in a transactional manner - he is truly invested in the project, asks insightful questions and seeks to understand the bigger problem that he is working to solve ... There is no question that [bosWell’s progress and recent funding] would not have been possible without having him on the team."
-  %br 
-  %strong - Aristotle Mannan, CEO, bosWell
+  .introduction__testimonials
+    %p.introduction__testimonials--lead
+      %em Here's what some colleagues say about me:
+    %p.introduction__testimonials--quote
+      "Mo Zhu is a highly sought after, whip smart Rails developer ... Not only does he write readable, well tested, and efficient code, but he does so in what seems like no time at all ... On one project, after he completed the server, he began learning Swift, and is now substantially contributing on the iOS side of things as well. Could not recommend him higher." 
+      %br 
+      %strong - Elliot Schrock, CTO, Trill
+    %p.introduction__testimonials--quote
+      "Mo worked promptly and diligently to deliver a high-quality product that to date has worked magnificently.  Unlike other developers out there, Mo does not operate in a transactional manner - he is truly invested in the project, asks insightful questions and seeks to understand the bigger problem that he is working to solve ... There is no question that [bosWell’s progress and recent funding] would not have been possible without having him on the team."
+      %br 
+      %strong - Aristotle Mannan, CEO, bosWell
