@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_filter :require_session!, only: [:new, :create]
 
-  def new; end
+  def new
+    redirect_to blogs_path if authenticated?
+  end
 
   def create
     gatekeeper = Gatekeeper.new(username: params[:username], password: params[:password])
