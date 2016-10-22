@@ -1,9 +1,9 @@
-= form_tag login_path do
-  .field
-    = label_tag :username
-    = text_field_tag :username
-  .field
-    = label_tag :password
-    = password_field_tag :password
-  .actions
-    = button_tag 'Login'
+= form_tag login_path, class: 'login-form' do
+  .login-form__field-group
+    = label_tag :username, nil, class: 'login-form__field-group--label'
+    = text_field_tag :username, nil, class: 'login-form__field-group--field'
+  .login-form__field-group
+    = label_tag :password, nil, class: 'login-form__field-group--label'
+    = password_field_tag :password, nil, class: 'login-form__field-group--field'
+  .login-form__actions
+    = button_tag 'Login', class: 'login-form__actions--submit'
