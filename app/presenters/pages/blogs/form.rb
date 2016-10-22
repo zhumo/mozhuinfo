@@ -22,7 +22,12 @@ module Pages
 
       def save(blog_params)
         blog_record.assign_attributes(blog_params)
+        blog_record.published_at = Time.zone.now if publishing?
         blog_record.save
+      end
+
+      def publishing?
+        view_context.params[:commit] == 'Publish'
       end
     end
   end
