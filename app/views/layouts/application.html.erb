@@ -15,11 +15,12 @@
   <% end %>
 
   <div class="main-body">
-    <% if authenticated? %>
-      <%= link_to 'Logout', logout_path, method: :delete %>
-    <% end %>
     <%= yield %>
   </div>
+
+  <% if authenticated? %>
+    <%= render 'shared/logout_button' %>
+  <% end %>
 
 </body>
 </html>
