@@ -1,0 +1,10 @@
+.blog-summary
+  .blog-summary--title
+    = blog.title
+  .blog-summary--preview
+    = blog.preview
+  .blog-summary--actions
+    = page.show_blog_button(blog)
+    - if authenticated?
+      = page.edit_blog_button(blog)
+      = page.delete_blog_button(blog)

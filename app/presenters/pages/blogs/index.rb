@@ -6,6 +6,12 @@ module Pages
         initialize_view_context(view_context)
       end
 
+      def render_blog_summaries
+        render_collection blogs, 'blogs/blog_summary', page: self do |local_assigns, blog|
+          local_assigns[:blog] = blog
+        end
+      end
+
       def blogs
         @blogs ||= Blog.all.map do |blog_record|
           Exhibit.exhibit_for(view_context, blog_record)
