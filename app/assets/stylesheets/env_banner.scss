@@ -6,9 +6,10 @@
   text-align: center;
   background-color: red;
   color: black;
+  box-shadow: 1px -1px 1px #666;
   &.env-banner--development {
-    background-color: green;
-    color: white;
+    background-color: #eee;
+    color: green;
   }
   &.env-banner--staging {
     background-color: yellow;
