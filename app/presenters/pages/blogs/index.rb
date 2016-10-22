@@ -22,8 +22,12 @@ module Pages
         link_to 'New Blog', route_path(:new_blog)
       end
 
-      def show_blog_button(blog)
-        link_to 'Show', blog.show_path
+      def blog_title_link(blog)
+        link_to blog.title, blog.show_path
+      end
+
+      def read_more_button(blog)
+        link_to 'Read more...', blog.show_path
       end
 
       def edit_blog_button(blog)
@@ -32,6 +36,10 @@ module Pages
 
       def delete_blog_button(blog)
         link_to 'Delete', blog.delete_path, method: :delete
+      end
+
+      def blog_timestamp(blog)
+        blog.created_at.to_formatted_s(:month_day_year)
       end
     end
   end
