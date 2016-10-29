@@ -5,4 +5,5 @@ class Blog < ApplicationRecord
   validates :summary, presence: true, length: { maximum: 256 }
 
   has_state_for :publish, :published
+  alias draft? not_published?
 end

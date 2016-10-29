@@ -43,7 +43,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_record
-    @blog ||= Blog.find(params[:id])
+    @blog ||= authorized_blog_scope.find(params[:id])
   end
 
   def blog_params

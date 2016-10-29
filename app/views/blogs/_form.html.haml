@@ -3,7 +3,7 @@
 
   .form__field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, autofocus: true
   .form__field
     = f.label :summary
     = f.text_field :summary
@@ -12,4 +12,5 @@
     ~ f.text_area :body
   .form__actions
     = f.submit 'Save', class: 'button button--blank'
-    = f.submit 'Publish', class: 'button button--success'
+    - if f.object.draft?
+      = f.submit 'Publish', class: 'button button--success'

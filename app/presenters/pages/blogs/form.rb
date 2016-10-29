@@ -17,7 +17,7 @@ module Pages
       end
 
       def build_blog_record
-        Blog.new
+        authorized_blog_scope.new
       end
 
       def save(blog_params)

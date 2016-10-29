@@ -1,7 +1,7 @@
 = form_tag login_path, class: 'login-form' do
   .form__field
     = label_tag :username
-    = text_field_tag :username
+    = text_field_tag :username, nil, autofocus: true
   .form__field
     = label_tag :password
     = password_field_tag :password

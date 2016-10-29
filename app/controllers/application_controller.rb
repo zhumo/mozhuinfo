@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
 
   include Concerns::Authentication
   include Concerns::Markdown
+  include Concerns::AuthorizedScopes
 end

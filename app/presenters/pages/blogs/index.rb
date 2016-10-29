@@ -11,7 +11,7 @@ module Pages
       end
 
       def blogs
-        @blogs ||= Blog.all.map do |blog_record|
+        @blogs ||= authorized_blog_scope.map do |blog_record|
           Exhibit.exhibit_for(view_context, blog_record)
         end
       end

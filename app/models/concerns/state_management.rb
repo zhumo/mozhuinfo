@@ -33,8 +33,13 @@ module Concerns
         save!
       end
       # deleted?
-      define_method "#{state_name}?".to_sym do
+      check_state_method = "#{state_name}?"
+      define_method check_state_method.to_sym do
         public_send(attribute_name).present?
+      end
+      # not_deleted?
+      define_method "not_#{check_state_method}".to_sym do
+        !public_send("#{state_name}?")
       end
 
       # deleted
