@@ -7,7 +7,7 @@
   input {
     display: block;
     width: 100%;
-    &[type='text'] {
+    &[type='text'],&[type='password'] {
       font-size: 1.5em;
       border-top: none;
       border-right: none;

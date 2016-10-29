@@ -33,7 +33,7 @@ module Pages
       end
 
       def delete_blog_button(blog)
-        link_to 'Delete', blog.delete_path, method: :delete
+        link_to 'Delete', blog.delete_path, method: :delete, data: { confirm: 'Are you sure?' }
       end
 
       def blog_timestamp(blog)

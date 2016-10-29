@@ -24,3 +24,12 @@ body {
   padding: 20px;
   width: 70%;
 }
+
+a {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+  &:hover {
+    color: gray;
+  }
+}

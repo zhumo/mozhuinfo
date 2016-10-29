@@ -33,7 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'haml'
-gem 'kramdown'
+gem 'kramdown' # Markdown
+gem 'coderay' # Syntax highlighting for markdown
 
 group :development, :test do
   gem 'pry-rails'
