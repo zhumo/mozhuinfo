@@ -25,10 +25,25 @@
   }
 }
 .form__actions {
+  padding: 0.5em 0;
 }
 .button {
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  padding: 0.5em;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 .button--blank {
+  background-color: white;
 }
 .button--success {
+  background-color: green;
+  color: white;
 }
