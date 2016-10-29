@@ -22,7 +22,7 @@ module Pages
 
       def save(blog_params)
         blog_record.assign_attributes(blog_params)
-        blog_record.published_at = Time.zone.now if publishing?
+        blog_record.mark_as_published if publishing?
         blog_record.save
       end
 
