@@ -17,7 +17,7 @@ module Pages
       end
 
       def new_blog_button
-        link_to 'New Blog', route_path(:new_blog)
+        link_to 'New Blog', route_path(:new_blog), class: 'button button--blank'
       end
 
       def blog_title_link(blog)
