@@ -33,3 +33,17 @@
   background-color: #eee;
   padding: 1px 10px;
 }
+
+.blog__body {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+  ol {
+    margin: 0.5em 0px;
+    li {
+      margin: 0.5em 0px;
+    }
+  }
+}
