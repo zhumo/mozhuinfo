@@ -9,7 +9,13 @@ module Concerns
     end
 
     def markdown(text)
-      Kramdown::Document.new(text).to_html.html_safe
+      opts = {
+        enable_coderay: true,
+        syntax_highlighter_opts: {
+          line_numbers: false,
+        },
+      }
+      Kramdown::Document.new(text, opts).to_html.html_safe
     end
   end
 end

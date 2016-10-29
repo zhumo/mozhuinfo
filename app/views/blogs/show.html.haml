@@ -1,9 +1,12 @@
 .blog
   %h1.blog__title= @page.title
   %p.blog__summary= @page.preview
-  %p.blog__timestamp= @page.timestamp
-  %p.blog__body= @page.full_body
+  .blog__body
+    ~ @page.full_body
 
+  %hr
+
+  %p.blog__timestamp= @page.timestamp
   .blog__actions
     - if authenticated?
       = @page.edit_blog_button

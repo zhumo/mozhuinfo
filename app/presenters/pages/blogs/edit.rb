@@ -28,7 +28,7 @@ module Pages
       end
 
       def back_button
-        link_to 'Back', view_context.blogs_path
+        link_to 'Back', blog.show_path
       end
     end
   end
