@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
     @page = Pages::Blogs::New.new(view_context)
 
     if @page.create(blog_params)
-      redirect_to @page.after_create_path, notice: 'Blog was successfully created.'
+      redirect_to @page.after_create_path, flash: { success: 'Blog was successfully created.' }
     else
       render :new
     end
@@ -30,7 +30,7 @@ class BlogsController < ApplicationController
     @page = Pages::Blogs::Edit.new(view_context, blog_record)
 
     if @page.update(blog_params)
-      redirect_to @page.after_update_path, notice: 'Blog was successfully updated.'
+      redirect_to @page.after_update_path, flash: { success: 'Blog was successfully updated.' }
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class BlogsController < ApplicationController
 
   def destroy
     blog_record.destroy
-    redirect_to blogs_url, notice: 'Blog was successfully destroyed.'
+    redirect_to blogs_url, flash: { success: 'Blog was successfully destroyed.' }
   end
 
   private
