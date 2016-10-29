@@ -1,12 +1,12 @@
 .blogs-list__summary
-  .blogs-list__summary--title
+  %h1.blog__title
     = page.blog_title_link(blog)
-  .blogs-list__summary--timestamp
-    = page.blog_timestamp(blog)
-  .blogs-list__summary--preview
+  .blog__summary
     = blog.preview
     = page.read_more_button(blog)
+  .blog__timestamp
+    = page.blog_timestamp(blog)
   - if authenticated?
-    .blogs-list__summary--actions
+    .blog__actions
       = page.edit_blog_button(blog)
       = page.delete_blog_button(blog)
