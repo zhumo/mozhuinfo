@@ -1,0 +1,9 @@
+%p#notice= notice
+
+.blogs-list
+  = @page.render_blog_summaries
+
+%br
+
+- if authenticated?
+  = @page.new_blog_button

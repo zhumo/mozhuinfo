@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.blog-summary {
+.blogs-list__summary {
   width: 100%;
   border-bottom: 1px #ddd solid;
   padding: 5px;
@@ -10,10 +10,12 @@
     margin-bottom: 2em;
   }
 }
-
-.blog-summary--timestamp {
+.blogs-list__summary--timestamp {
   font-size: 0.8em;
   font-style: italic;
   margin-bottom: 1em;
+}
+.blogs-list__summary--actions {
+  margin-top: 10px;
 }
 
