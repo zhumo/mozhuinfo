@@ -10,6 +10,14 @@ module Exhibits
       markdown(body)
     end
 
+    def timestamp(format = :month_day_year)
+      if published?
+        "Published #{published_at.to_formatted_s(format)}"
+      else
+        "Created #{created_at.to_formatted_s(format)}"
+      end
+    end
+
     def show_path
       route_path(:blog, blog_record)
     end

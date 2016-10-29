@@ -35,10 +35,6 @@ module Pages
       def delete_blog_button(blog)
         link_to 'Delete', blog.delete_path, method: :delete, data: { confirm: 'Are you sure?' }
       end
-
-      def blog_timestamp(blog)
-        blog.created_at.to_formatted_s(:month_day_year)
-      end
     end
   end
 end

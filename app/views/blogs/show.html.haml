@@ -1,5 +1,8 @@
 .blog
-  %h1.blog__title= @page.title
+  %h1.blog__title
+    = @page.title
+    - if @page.draft?
+      %span.badge.badge--warning draft
   %p.blog__summary= @page.preview
   .blog__body
     ~ @page.full_body

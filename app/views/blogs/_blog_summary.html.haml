@@ -1,11 +1,13 @@
 .blogs-list__summary
   %h1.blog__title
     = page.blog_title_link(blog)
+    - if blog.draft?
+      %span.badge.badge--warning draft
   .blog__summary
     = blog.preview
     = page.read_more_button(blog)
   .blog__timestamp
-    = page.blog_timestamp(blog)
+    = blog.timestamp
   - if authenticated?
     .blog__actions
       = page.edit_blog_button(blog)
