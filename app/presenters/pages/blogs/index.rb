@@ -7,9 +7,7 @@ module Pages
       end
 
       def render_blog_summaries
-        render_collection blogs, 'blogs/blog_summary', page: self do |local_assigns, blog|
-          local_assigns[:blog] = blog
-        end
+        render partial: 'blogs/blog_summary', collection: blogs, as: :blog, locals: { page: self }
       end
 
       def blogs
