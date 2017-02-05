@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.4'
+ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0'
@@ -9,7 +9,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -31,13 +31,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'haml'
-gem 'kramdown' # Markdown
-gem 'coderay' # Syntax highlighting for markdown
+gem 'haml', '~> 4.0'
+gem 'kramdown', '~> 1.12' # Markdown
+gem 'coderay', '~> 1.1' # Syntax highlighting for markdown
 
 group :development, :test do
-  gem 'pry-rails'
-  gem 'dotenv-rails'
+  gem 'pry-rails', '~> 0.3'
+  gem 'dotenv-rails', '~> 2.1'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
@@ -45,6 +46,5 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 2.0'
 end
-
