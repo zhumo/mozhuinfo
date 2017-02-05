@@ -64,4 +64,16 @@ RSpec.configure do |config|
       # with.library :active_controller #=> Currently Unused
     end
   end
+
+  # DatabaseCleaner config
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |spec|
+    DatabaseCleaner.cleaning do
+      spec.run
+    end
+  end
 end
