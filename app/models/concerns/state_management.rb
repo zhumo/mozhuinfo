@@ -42,6 +42,7 @@ module Concerns
         !public_send("#{state_name}?")
       end
 
+      ### AR SCOPES ###
       # deleted
       scope state_name.to_sym, -> { where.not(attribute_name => nil) }
       # not_deleted

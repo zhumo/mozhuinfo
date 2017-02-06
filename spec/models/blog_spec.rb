@@ -13,4 +13,8 @@ RSpec.describe Blog, type: :model do
     it { should validate_presence_of(:summary) }
     it { should validate_length_of(:summary).is_at_most(256) }
   end
+
+  describe 'published state' do
+    it_should_behave_like Concerns::StateManagement, :publish, :published
+  end
 end
