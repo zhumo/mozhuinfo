@@ -10,4 +10,8 @@ FactoryGirl.define do
       published_at { Time.zone.now }
     end
   end
+
+  factory :session do
+    token { SecureRandom.hex }
+  end
 end
