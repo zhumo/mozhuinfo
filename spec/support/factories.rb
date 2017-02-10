@@ -13,5 +13,9 @@ FactoryGirl.define do
 
   factory :session do
     token { SecureRandom.hex }
+
+    trait :expired do
+      created_at { 1.week.ago - 1.hour }
+    end
   end
 end

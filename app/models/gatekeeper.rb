@@ -10,13 +10,13 @@ class Gatekeeper
   end
 
   def allow?
-    valid_session? || valid_credentials?
+    active_session? || valid_credentials?
   end
 
   private
 
-  def valid_session?
-    session_record.created_at > 1.week.ago
+  def active_session?
+    session_record.active?
   end
 
   def session_record

@@ -1,5 +1,5 @@
 class NullSession
-  def created_at
-    Time.at(0)
+  def active?
+    false
   end
 end

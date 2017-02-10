@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Gatekeeper do
+RSpec.describe Gatekeeper, type: :model do
   describe '#allow?' do
     context 'authentication by credentials' do
       let(:username) { 'mozhu' }
@@ -9,7 +9,9 @@ RSpec.describe Gatekeeper do
 
       context 'no credentials set' do
         it 'returns false' do
-          expect(gatekeeper.allow?).to be_falsey
+          expect {
+            expect(gatekeeper.allow?).to be_falsey
+          }.to_not change { Session.count }
         end
       end
 
@@ -23,7 +25,9 @@ RSpec.describe Gatekeeper do
         end
 
         it 'returns false' do
-          expect(gatekeeper.allow?).to be_falsey
+          expect {
+            expect(gatekeeper.allow?).to be_falsey
+          }.to_not change { Session.count }
         end
       end
 
@@ -37,7 +41,9 @@ RSpec.describe Gatekeeper do
         end
 
         it 'returns false' do
-          expect(gatekeeper.allow?).to be_falsey
+          expect {
+            expect(gatekeeper.allow?).to be_falsey
+          }.to_not change { Session.count }
         end
       end
 
@@ -56,7 +62,9 @@ RSpec.describe Gatekeeper do
           let(:gatekeeper) { Gatekeeper.new(username: 'incorrect', password: 'wrong') }
 
           it 'returns false' do
-            expect(gatekeeper.allow?).to be_falsey
+            expect {
+              expect(gatekeeper.allow?).to be_falsey
+            }.to_not change { Session.count }
           end
         end
 
@@ -64,7 +72,9 @@ RSpec.describe Gatekeeper do
           let(:gatekeeper) { Gatekeeper.new(username: username, password: 'wrong') }
 
           it 'returns false' do
-            expect(gatekeeper.allow?).to be_falsey
+            expect {
+              expect(gatekeeper.allow?).to be_falsey
+            }.to_not change { Session.count }
           end
         end
 
@@ -72,13 +82,17 @@ RSpec.describe Gatekeeper do
           let(:gatekeeper) { Gatekeeper.new(username: 'incorrect', password: password) }
 
           it 'returns false' do
-            expect(gatekeeper.allow?).to be_falsey
+            expect {
+              expect(gatekeeper.allow?).to be_falsey
+            }.to_not change { Session.count }
           end
         end
 
         context 'correct username and password' do
           it 'returns true' do
-            expect(gatekeeper.allow?).to be_truthy
+            expect {
+              expect(gatekeeper.allow?).to be_truthy
+            }.to change { Session.count }.by(1)
           end
         end
       end
