@@ -54,4 +54,5 @@ group :test do
   gem 'database_cleaner', '~> 1.5'
   gem 'timecop', '~> 0.8'
   gem 'factory_girl_rails', '~> 4.8'
+  gem 'capybara', '~> 2.12'
 end
