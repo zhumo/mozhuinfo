@@ -3,7 +3,7 @@ module Concerns
     extend ActiveSupport::Concern
 
     included do
-      before_filter :require_session!
+      before_action :require_session!
       helper_method :authenticated?
     end
 

@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  skip_before_filter :require_session!, only: [:index, :show]
+  skip_before_action :require_session!, only: [:index, :show]
   def index
     @page = Pages::Blogs::Index.new(view_context)
   end

@@ -15,7 +15,7 @@ RSpec.describe AuthenticatingController, type: :controller do
 
   before do
     routes.draw { get 'authenticated_action' => 'authenticating#authenticated_action' }
-    get :authenticated_action, {}, session
+    get :authenticated_action, session: session
   end
 
   context 'no sessions in db' do
