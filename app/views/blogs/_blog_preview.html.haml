@@ -1,8 +1,8 @@
-.blogs-list__summary
+.blog-preview{ "data-blog-id": blog.id }
   %h1.blog__title
     = page.blog_title_link(blog)
     - if blog.draft?
-      %span.badge.badge--warning draft
+      %span.blog__draft-icon.badge.badge--warning draft
   .blog__summary
     = blog.preview
     = page.read_more_button(blog)

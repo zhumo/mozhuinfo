@@ -81,6 +81,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     kramdown (1.12.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -206,6 +208,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kramdown (~> 1.12)
+  launchy (~> 2.4)
   pg
   pry-rails (~> 0.3)
   rails (~> 5.0)

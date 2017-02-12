@@ -55,4 +55,5 @@ group :test do
   gem 'timecop', '~> 0.8'
   gem 'factory_girl_rails', '~> 4.8'
   gem 'capybara', '~> 2.12'
+  gem 'launchy', '~> 2.4' # ruby wrapper for launching a browser. Enables capybara's save_and_open_page
 end

@@ -7,7 +7,7 @@ module Pages
       end
 
       def render_blog_summaries
-        render partial: 'blogs/blog_summary', collection: blogs, as: :blog, locals: { page: self }
+        render partial: 'blogs/blog_preview', collection: blogs, as: :blog, locals: { page: self }
       end
 
       def blogs

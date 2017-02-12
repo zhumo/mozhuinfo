@@ -9,6 +9,10 @@ FactoryGirl.define do
     trait :published do
       published_at { Time.zone.now }
     end
+
+    trait :draft do
+      published_at nil
+    end
   end
 
   factory :session do

@@ -11,6 +11,6 @@
     = f.label :body
     ~ f.text_area :body
   .form__actions
-    = f.submit class: 'button button--blank'
+    = f.submit 'Save', class: 'button button--blank'
     - if f.object.draft?
       = f.submit 'Publish', class: 'button button--success'
