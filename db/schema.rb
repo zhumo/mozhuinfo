@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170215012228) do
     t.datetime "updated_at",               null: false
     t.datetime "published_at"
     t.string   "summary",      limit: 256, null: false
-    t.string   "slug"
+    t.string   "slug",         limit: 128
   end
 
   create_table "sessions", force: :cascade do |t|

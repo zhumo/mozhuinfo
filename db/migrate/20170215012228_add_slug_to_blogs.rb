@@ -1,6 +1,6 @@
 class AddSlugToBlogs < ActiveRecord::Migration[5.0]
-  def change
-    add_column :blogs, :slug, :string
+  def up
+    add_column :blogs, :slug, :string, limit: 128
     {
       1 => 'whitespace_preservation_haml',
       2 => 'gradual_stiffening',
@@ -14,5 +14,9 @@ class AddSlugToBlogs < ActiveRecord::Migration[5.0]
       })
     end
     change_column_null :blogs, :slug, true
+  end
+
+  def down
+    remove_column :blogs, :slug
   end
 end
