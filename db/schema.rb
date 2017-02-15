@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215012228) do
+ActiveRecord::Schema.define(version: 20170215023445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170215012228) do
     t.datetime "published_at"
     t.string   "summary",      limit: 256, null: false
     t.string   "slug",         limit: 128
+    t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
   end
 
   create_table "sessions", force: :cascade do |t|

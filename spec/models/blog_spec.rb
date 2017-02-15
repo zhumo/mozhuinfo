@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Blog, type: :model do
   describe 'validations' do
+    subject { FactoryGirl.build(:blog) }
     # Title
     it { should validate_presence_of(:title) }
     it { should validate_length_of(:title).is_at_most(256) }
@@ -16,6 +17,7 @@ RSpec.describe Blog, type: :model do
     # Slug
     it { should validate_presence_of(:slug) }
     it { should validate_length_of(:slug).is_at_most(128) }
+    it { should validate_uniqueness_of(:slug) }
     it { should have_valid(:slug).when('abc_123') }
     it { should_not have_valid(:slug).when('abc_123_<>":{}!@#') }
   end
