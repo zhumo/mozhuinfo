@@ -16,6 +16,8 @@ RSpec.describe Blog, type: :model do
     # Slug
     it { should validate_presence_of(:slug) }
     it { should validate_length_of(:slug).is_at_most(128) }
+    it { should have_valid(:slug).when('abc_123') }
+    it { should_not have_valid(:slug).when('abc_123_<>":{}!@#') }
   end
 
   describe 'published state' do

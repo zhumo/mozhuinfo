@@ -51,6 +51,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'valid_attribute', '~> 2.0'
   gem 'database_cleaner', '~> 1.5'
   gem 'timecop', '~> 0.8'
   gem 'factory_girl_rails', '~> 4.8'

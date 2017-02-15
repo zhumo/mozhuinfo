@@ -5,7 +5,7 @@ FactoryGirl.define do
     sequence(:title) { |n| "Blog Post ##{n}" }
     sequence(:summary) { |n|"You should read this because #{n}" }
     body "Let me tell you about my feelings"
-    sequence(:slug) { |n| "Slug#{n}" }
+    sequence(:slug) { |n| "slug#{n}" }
 
     trait :published do
       published_at { Time.zone.now }
