@@ -7,4 +7,9 @@ class Blog < ApplicationRecord
 
   has_state_for :publish, :published
   alias draft? not_published?
+
+  # Blog urls use slug instead of id in the route
+  def to_param
+    slug
+  end
 end

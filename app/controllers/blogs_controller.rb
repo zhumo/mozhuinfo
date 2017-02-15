@@ -43,10 +43,10 @@ class BlogsController < ApplicationController
 
   private
   def blog_record
-    @blog ||= authorized_blog_scope.find(params[:id])
+    @blog ||= authorized_blog_scope.find_by!(slug: params[:id])
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :summary, :body)
+    params.require(:blog).permit(:title, :summary, :body, :slug)
   end
 end

@@ -52,6 +52,7 @@ RSpec.feature 'blogs' do
       click_on 'New Blog'
       fill_in 'Title', with: 'My Latest Feelings'
       fill_in 'Summary', with: 'I have lots of feelings to share'
+      fill_in 'Slug', with: 'feelings'
       fill_in 'Body', with: 'These are my feelings. My feelings are important because I\'m important'
       click_on 'Save'
 
