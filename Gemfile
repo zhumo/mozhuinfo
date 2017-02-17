@@ -8,8 +8,6 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-# gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -57,4 +55,8 @@ group :test do
   gem 'factory_girl_rails', '~> 4.8'
   gem 'capybara', '~> 2.12'
   gem 'launchy', '~> 2.4' # ruby wrapper for launching a browser. Enables capybara's save_and_open_page
+end
+
+group :assets do
+  gem 'coffee-rails', '~> 4.1.0' # TODO: idk why, but asset precompile requires coffee
 end
