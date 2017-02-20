@@ -11,7 +11,7 @@ module Pages
       end
 
       def blogs
-        @blogs ||= authorized_blog_scope.map do |blog_record|
+        @blogs ||= authorized_blog_scope.recent.map do |blog_record|
           Exhibit.exhibit_for(view_context, blog_record)
         end
       end
@@ -35,6 +35,7 @@ module Pages
       def delete_blog_button(blog)
         link_to 'Delete', blog.delete_path, method: :delete, data: { confirm: 'Are you sure?' }
       end
+
     end
   end
 end

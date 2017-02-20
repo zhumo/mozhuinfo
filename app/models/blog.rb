@@ -8,6 +8,8 @@ class Blog < ApplicationRecord
   has_state_for :publish, :published
   alias draft? not_published?
 
+  scope :recent, -> { order(published_at: :desc, created_at: :desc) }
+
   # Blog urls use slug instead of id in the route
   def to_param
     slug
