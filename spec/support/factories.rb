@@ -1,6 +1,6 @@
-require 'factory_girl'
+require 'factory_bot'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :blog do
     sequence(:title) { |n| "Blog Post ##{n}" }
     sequence(:summary) { |n|"You should read this because #{n}" }

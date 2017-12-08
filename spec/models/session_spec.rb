@@ -6,13 +6,13 @@ RSpec.describe Session, type: :model do
 
   describe '#active?' do
     context 'active' do
-      subject(:session) { FactoryGirl.create(:session) }
+      subject(:session) { FactoryBot.create(:session) }
 
       it { should be_active }
     end
 
     context 'expired' do
-      subject(:session) { FactoryGirl.create(:session, :expired) }
+      subject(:session) { FactoryBot.create(:session, :expired) }
 
       it { should_not be_active }
     end

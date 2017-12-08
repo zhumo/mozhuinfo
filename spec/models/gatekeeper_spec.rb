@@ -112,7 +112,7 @@ RSpec.describe Gatekeeper, type: :model do
           let(:gatekeeper) { Gatekeeper.new(session_key: session.token) }
 
           context 'the session was created less than a week ago' do
-            let!(:session) { FactoryGirl.create(:session, created_at: 1.week.ago + 1.second) }
+            let!(:session) { FactoryBot.create(:session, created_at: 1.week.ago + 1.second) }
 
             it 'returns true' do
               expect(gatekeeper.allow?).to be_truthy
@@ -120,7 +120,7 @@ RSpec.describe Gatekeeper, type: :model do
           end
 
           context 'the session was created over a week ago' do
-            let!(:session) { FactoryGirl.create(:session, created_at: 1.week.ago - 1.second) }
+            let!(:session) { FactoryBot.create(:session, created_at: 1.week.ago - 1.second) }
 
             it 'returns false' do
               expect(gatekeeper.allow?).to be_falsey
@@ -129,7 +129,7 @@ RSpec.describe Gatekeeper, type: :model do
         end
 
         context 'key does not match existing session' do
-          let!(:session) { FactoryGirl.create(:session) }
+          let!(:session) { FactoryBot.create(:session) }
           let(:gatekeeper) { Gatekeeper.new(session_key: SecureRandom.hex) }
 
 

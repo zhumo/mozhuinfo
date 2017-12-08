@@ -1,6 +1,6 @@
 RSpec.shared_examples Concerns::StateManagement do |action_name, state_name|
   let(:factory_key) { described_class.model_name.i18n_key }
-  let(:instance) { FactoryGirl.create(factory_key) }
+  let(:instance) { FactoryBot.create(factory_key) }
   let(:attribute_name) { "#{state_name}_at" }
   let(:now) { Time.zone.now }
 
@@ -172,12 +172,12 @@ RSpec.shared_examples Concerns::StateManagement do |action_name, state_name|
 
   context 'ActiveRecord scopes' do
     let!(:is) do
-      FactoryGirl.create(factory_key).tap do |instance|
+      FactoryBot.create(factory_key).tap do |instance|
         instance.send(action_name)
       end
     end
     let!(:aint) do
-      FactoryGirl.create(factory_key).tap do |instance|
+      FactoryBot.create(factory_key).tap do |instance|
         instance.send("un#{action_name}")
       end
     end

@@ -23,7 +23,7 @@ RSpec.describe AuthenticatingController, type: :controller do
   end
 
   context 'with sessions in db' do
-    let!(:session_record) { FactoryGirl.create(:session) }
+    let!(:session_record) { FactoryBot.create(:session) }
 
     context 'incorrect session key' do
       let(:session) { { token: 'abc123' } }
@@ -35,7 +35,7 @@ RSpec.describe AuthenticatingController, type: :controller do
       let(:session) { { token: session_record.token } }
 
       context 'session is expired' do
-        let!(:session_record) { FactoryGirl.create(:session, :expired) }
+        let!(:session_record) { FactoryBot.create(:session, :expired) }
 
         it { should redirect_to login_path }
       end

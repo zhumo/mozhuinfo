@@ -4,8 +4,8 @@ RSpec.feature 'blogs' do
   include BlogSteps
   include AuthenticationSteps
 
-  let!(:blog) { FactoryGirl.create(:blog, :published) }
-  let!(:draft) { FactoryGirl.create(:blog, :draft) }
+  let!(:blog) { FactoryBot.create(:blog, :published) }
+  let!(:draft) { FactoryBot.create(:blog, :draft) }
 
   context 'unauthenticated' do
     scenario 'viewing blogs' do

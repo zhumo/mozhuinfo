@@ -29,19 +29,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'haml', '~> 4.0'
+gem 'haml', '~> 5.0'
 gem 'kramdown', '~> 1.12' # Markdown
 gem 'coderay', '~> 1.1' # Syntax highlighting for markdown
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3'
   gem 'dotenv-rails', '~> 2.1'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.0'
@@ -52,11 +52,11 @@ group :test do
   gem 'valid_attribute', '~> 2.0'
   gem 'database_cleaner', '~> 1.5'
   gem 'timecop', '~> 0.8'
-  gem 'factory_girl_rails', '~> 4.8'
+  gem 'factory_bot_rails', '~> 4.8'
   gem 'capybara', '~> 2.12'
   gem 'launchy', '~> 2.4' # ruby wrapper for launching a browser. Enables capybara's save_and_open_page
 end
 
 group :assets do
-  gem 'coffee-rails', '~> 4.1.0' # TODO: idk why, but asset precompile requires coffee
+  gem 'coffee-rails', '~> 4.2.0' # TODO: idk why, but asset precompile requires coffee
 end
