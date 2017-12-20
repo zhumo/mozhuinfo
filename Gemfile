@@ -29,7 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'haml', '~> 5.0'
+gem 'haml-rails', '~> 1.0'
 gem 'kramdown', '~> 1.12' # Markdown
 gem 'rouge', '~> 3.0' # Syntax highlighting for markdown
 
