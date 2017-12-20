@@ -31,7 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml', '~> 5.0'
 gem 'kramdown', '~> 1.12' # Markdown
-gem 'coderay', '~> 1.1' # Syntax highlighting for markdown
+gem 'rouge', '~> 3.0' # Syntax highlighting for markdown
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3'

@@ -10,10 +10,7 @@ module Concerns
 
     def markdown(text)
       opts = {
-        enable_coderay: true,
-        syntax_highlighter_opts: {
-          line_numbers: false,
-        },
+        syntax_highlighter: 'rouge',
       }
       Kramdown::Document.new(text, opts).to_html.html_safe
     end
