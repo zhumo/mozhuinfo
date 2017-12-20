@@ -21,10 +21,8 @@ RSpec.feature 'blogs' do
       expect(current_path).to eq(blogs_path)
 
       # Can't create or update
-      visit new_blog_path
-      expect(current_path).to eq(login_path)
-      visit edit_blog_path(blog)
-      expect(current_path).to eq(login_path)
+      expect_authentication_bounce(new_blog_path)
+      expect_authentication_bounce(edit_blog_path(blog))
     end
   end
 
