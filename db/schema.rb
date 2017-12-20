@@ -10,26 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215023445) do
+ActiveRecord::Schema.define(version: 20171220010916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blogs", force: :cascade do |t|
-    t.string   "title",        limit: 256, null: false
-    t.text     "body",                     null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "blogs", id: :serial, force: :cascade do |t|
+    t.string "title", limit: 256, null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "published_at"
-    t.string   "summary",      limit: 256, null: false
-    t.string   "slug",         limit: 128
-    t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
+    t.string "summary", limit: 256, null: false
+    t.string "slug", limit: 128
+    t.index ["slug"], name: "index_blogs_on_slug", unique: true
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.string   "token",      limit: 128, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "sessions", id: :serial, force: :cascade do |t|
+    t.string "token", limit: 128, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
