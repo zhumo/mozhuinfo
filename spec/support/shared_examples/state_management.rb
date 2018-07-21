@@ -30,7 +30,7 @@ RSpec.shared_examples Concerns::StateManagement do |action_name, state_name|
           expect(instance.send(action_name)).to be_truthy
           expect(instance.send(attribute_name)).to eq(now)
           instance.reload
-          expect(instance.send(attribute_name)).to eq(now)
+          expect(instance.send("#{state_name}?")).to be_truthy
         end
       end
 
@@ -56,7 +56,7 @@ RSpec.shared_examples Concerns::StateManagement do |action_name, state_name|
           expect(instance.send("#{action_name}!")).to be_truthy
           expect(instance.send(attribute_name)).to eq(now)
           instance.reload
-          expect(instance.send(attribute_name)).to eq(now)
+          expect(instance.send("#{state_name}?")).to be_truthy
         end
       end
 
@@ -113,7 +113,7 @@ RSpec.shared_examples Concerns::StateManagement do |action_name, state_name|
           expect(instance.send(action_name)).to be_falsey
           expect(instance.send(attribute_name)).to eq(now)
           instance.reload
-          expect(instance.send(attribute_name)).to eq(now)
+          expect(instance.send("#{state_name}?")).to be_truthy
         end
       end
     end
@@ -142,7 +142,7 @@ RSpec.shared_examples Concerns::StateManagement do |action_name, state_name|
           expect(instance.send(attribute_name)).to eq(now)
           expect{ instance.send("un#{action_name}!") }.to raise_error(ActiveRecord::RecordInvalid)
           instance.reload
-          expect(instance.send(attribute_name)).to eq(now)
+          expect(instance.send("#{state_name}?")).to be_truthy
         end
       end
     end
