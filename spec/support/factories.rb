@@ -23,4 +23,9 @@ FactoryBot.define do
       created_at { 1.week.ago - 1.hour }
     end
   end
+
+  factory :user do
+    sequence(:name) { |n| "Person #{n}" }
+    sequence(:phone_number) { |n| "#{n}".rjust(10,"0") }
+  end
 end
