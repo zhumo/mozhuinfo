@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :blogs
-  resources :users, except: [:show]
+  resources :users
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
