@@ -44,8 +44,9 @@ RSpec.feature 'users' do
 
       # Editing
       within user_row(stacy) do
-        click_on 'Edit'
+        click_on stacy.name
       end
+      click_on 'Edit'
       expect(current_path).to eq(edit_user_path(stacy))
       fill_in 'Name', with: 'Jane'
       fill_in 'Phone Number', with: '0123456789'

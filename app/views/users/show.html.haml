@@ -1,8 +1,8 @@
 %p#notice= notice
 
 %h1= @page.user.name
-%h1= @page.user.formatted_phone_number
+%p Phone Number: #{@page.user.formatted_phone_number}
 
-= @page.edit_user_link
-\|
 = @page.users_index_link
+\|
+= @page.edit_user_link

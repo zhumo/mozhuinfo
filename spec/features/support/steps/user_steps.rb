@@ -1,7 +1,7 @@
 module UserSteps
 
   def user_row_selector(user)
-    ".user[data-user-id='#{user.id}']"
+    ".user-row[data-user-id='#{user.id}']"
   end
 
   def user_row(user)

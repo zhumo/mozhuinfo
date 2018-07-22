@@ -1,10 +1,8 @@
-%h1 Listing users
+%h1 Users
 
-%table
+%table.users-table
   %thead
     %tr
-      %th Name
-      %th
       %th
       %th
 
@@ -13,4 +11,4 @@
 
 %br
 
-= link_to 'New User', new_user_path
+= @page.new_user_button
