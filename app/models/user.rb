@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :programmatic_messages, dependent: :destroy
+
   validates :name,
     presence: true,
     uniqueness: true,

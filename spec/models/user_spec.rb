@@ -4,6 +4,9 @@ RSpec.describe User, type: :model do
   describe 'validations' do
     subject { FactoryBot.build(:user) }
 
+    # Associations
+    it { should have_many(:programmatic_messages).dependent(:destroy) }
+
     # Name
     it { should validate_uniqueness_of(:name) }
     it { should validate_presence_of(:name) }
