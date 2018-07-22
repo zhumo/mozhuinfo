@@ -2,6 +2,7 @@ require 'feature_spec_helper'
 
 RSpec.feature 'users' do
   include AuthenticationSteps
+  include UserSteps
 
   context 'unauthenticated' do
     let!(:user) { FactoryBot.create(:user) }
@@ -27,13 +28,22 @@ RSpec.feature 'users' do
       fill_in 'Phone Number', with: '9998675309'
       click_on 'Save'
 
-      # Index
+      # Show
       stacy = User.last
+      expect(current_path).to eq(user_path(stacy))
+      expect(page).to have_content('Stacy')
+      # TODO: Don't include number helpers in the spec.
+      # Wrap this in some kind of page object
+      expect(page).to have_content('999-867-5309')
+
+      click_on 'All Users'
+
+      # Index
       expect(current_path).to eq(users_path)
       expect(page).to have_user(stacy)
 
       # Editing
-      within user_block(stacy) do
+      within user_row(stacy) do
         click_on 'Edit'
       end
       expect(current_path).to eq(edit_user_path(stacy))
@@ -41,9 +51,10 @@ RSpec.feature 'users' do
       fill_in 'Phone Number', with: '0123456789'
       click_on 'Save'
 
-      expect(current_path).to eq(users_path)
+      jane = stacy.reload
+      expect(current_path).to eq(user_path(jane))
       expect(page).to have_text('Jane')
-      expect(page).to have_text('0123456789')
+      expect(page).to have_text('012-345-6789')
     end
   end
 end

@@ -1,6 +1,8 @@
 %p#notice= notice
 
+%h1= @page.user.name
+%h1= @page.user.formatted_phone_number
 
-= link_to 'Edit', edit_user_path(@user)
+= @page.edit_user_link
 \|
-= link_to 'Back', users_path
+= @page.users_index_link

@@ -1,0 +1,5 @@
+%tr.user{data: { user_id: user.id } }
+  %td= user.name
+  %td= page.user_show_link(user)
+  %td= page.user_edit_link(user)
+  %td= page.user_destroy_link(user)

@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
   before_action :require_session!
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @page = Pages::Users::Index.new(view_context)
   end
 
   def show
-
+    @page = Pages::Users::Show.new(view_context, user_record)
   end
 
   def new
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @page = Pages::Users::Edit.new(view_context, user_record)
   end
 
   def create
@@ -28,31 +28,25 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    @page = Pages::Users::Edit.new(view_context, user_record)
+    if @page.update(user_params)
+      redirect_to @page.after_update_path, notice: 'User was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    user_record.destroy
+    redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def user_record
+    @user ||= authorized_user_scope.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:name, :phone_number)
-    end
+  def user_params
+    params.require(:user).permit(:name, :phone_number)
+  end
 end

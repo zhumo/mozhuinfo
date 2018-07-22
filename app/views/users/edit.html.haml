@@ -1,7 +1,5 @@
 %h1 Editing user
 
-= render 'form'
+= @page.render_user_form
 
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path
+= @page.cancel_link
