@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :blogs
-  resources :users
+
+  resources :users do
+    resources :pings, only: [:new, :create, :edit, :update, :destroy]
+  end
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

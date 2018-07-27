@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many :programmatic_messages, dependent: :destroy
+  has_many :pings, dependent: :destroy
 
   validates :name,
     presence: true,

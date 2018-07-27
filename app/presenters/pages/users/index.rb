@@ -19,9 +19,7 @@ module Pages
       end
 
       def user_destroy_link(user)
-        link_to user, method: :delete, title: "Delete", data: { confirm: 'Are you sure?' } do
-          "x"
-        end
+        link_to "🗑", user, method: :delete, title: "Delete", data: { confirm: 'Are you sure?' }
       end
 
       def new_user_button

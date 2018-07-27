@@ -1,0 +1,7 @@
+- if list.pings.present?
+  %table.pings-table.table
+    %thead
+      %tr
+        %th{colspan: 4} Pings
+    %tbody
+      = list.render_ping_rows

@@ -22,6 +22,7 @@ class Exhibit < SimpleDelegator
       [
         Exhibits::Blog,
         Exhibits::User,
+        Exhibits::Ping,
       ]
     end
 

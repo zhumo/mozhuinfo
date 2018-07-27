@@ -26,14 +26,15 @@ ActiveRecord::Schema.define(version: 20180722191156) do
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
   end
 
-  create_table "programmatic_messages", force: :cascade do |t|
+  create_table "pings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "algorithm", limit: 128, null: false
-    t.string "body", limit: 128, null: false
-    t.datetime "next_message_at"
+    t.string "message", limit: 128, null: false
+    t.datetime "paused_at"
+    t.datetime "next_ping_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_programmatic_messages_on_user_id"
+    t.index ["user_id"], name: "index_pings_on_user_id"
   end
 
   create_table "sessions", id: :serial, force: :cascade do |t|

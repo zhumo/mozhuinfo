@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     subject { FactoryBot.build(:user) }
 
     # Associations
-    it { should have_many(:programmatic_messages).dependent(:destroy) }
+    it { should have_many(:pings).dependent(:destroy) }
 
     # Name
     it { should validate_uniqueness_of(:name) }

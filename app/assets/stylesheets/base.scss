@@ -1,3 +1,4 @@
+/* FORMS */
 .form__field {
   padding: 5px 0px;
   label {
@@ -27,6 +28,8 @@
 .form__actions {
   padding: 0.5em 0;
 }
+
+/* BUTTONS */
 .button {
   border: 1px solid gray;
   border-radius: 5px;
@@ -39,6 +42,7 @@
   &:hover {
     opacity: 0.5;
   }
+  display: inline-block;
 }
 .button--blank {
   background-color: white;
@@ -46,4 +50,24 @@
 .button--success {
   background-color: green;
   color: white;
+}
+
+/* TABLES */
+.table {
+  width: 100%;
+}
+
+.table-row {
+  td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  &:not(:last-child) td {
+    border-bottom: gray dashed 1px;
+  }
+}
+
+.table-cell__actions {
+  text-align: right;
 }

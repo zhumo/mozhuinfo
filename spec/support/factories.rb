@@ -28,4 +28,15 @@ FactoryBot.define do
     sequence(:name) { |n| "Person #{n}" }
     sequence(:phone_number) { |n| "#{n}".rjust(10,"0") }
   end
+
+  factory :ping do
+    sequence(:algorithm) { |n| Ping::YEARLY_ALGORITHM }
+    sequence(:body) { |n| "Read me! #{n}" }
+
+    user
+
+    trait :next_message_scheduled do
+      sequence(:next_message_at) { |n| Time.zone.now + n.days }
+    end
+  end
 end
