@@ -24,7 +24,8 @@ class PingsController < ApplicationController
   end
 
   def destroy
-
+    user_record.pings.find(params[:id]).destroy
+    redirect_to user_record, flash: { notice: "Ping deleted"}
   end
 
   private
