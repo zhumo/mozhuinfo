@@ -16,15 +16,21 @@ class PingsController < ApplicationController
   end
 
   def edit
-
+    @page = Pages::Pings::Edit.new(view_context, user_record, ping_record)
   end
 
   def update
+    @page = Pages::Pings::Edit.new(view_context, user_record, ping_record)
 
+    if @page.update(ping_params)
+      redirect_to @page.after_update_path, flash: { notice: "Ping Updated" }
+    else
+      render :edit
+    end
   end
 
   def destroy
-    user_record.pings.find(params[:id]).destroy
+    ping_record.destroy
     redirect_to user_record, flash: { notice: "Ping deleted"}
   end
 
@@ -32,6 +38,10 @@ class PingsController < ApplicationController
 
   def user_record
     @user_record ||= authorized_user_scope.find(params[:user_id])
+  end
+
+  def ping_record
+    @ping_record ||= user_record.pings.find(params[:id])
   end
 
   def ping_params
