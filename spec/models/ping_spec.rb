@@ -15,7 +15,7 @@ RSpec.describe Ping, type: :model do
   # Al Gore Rhythm
   it { should validate_presence_of(:algorithm) }
   it { should validate_length_of(:algorithm).is_at_most(128) }
-  it { should validate_inclusion_of(:algorithm).in_array(ProgrammaticMessage::VALID_ALGORITHMS) }
+  it { should validate_inclusion_of(:algorithm).in_array(Ping::VALID_ALGORITHMS) }
 
   describe 'paused state' do
     it_should_behave_like Concerns::StateManagement, :pause, :paused

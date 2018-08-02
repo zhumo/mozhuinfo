@@ -31,7 +31,7 @@ FactoryBot.define do
 
   factory :ping do
     sequence(:algorithm) { |n| Ping::YEARLY_ALGORITHM }
-    sequence(:body) { |n| "Read me! #{n}" }
+    sequence(:message) { |n| "Read me! #{n}" }
 
     user
 

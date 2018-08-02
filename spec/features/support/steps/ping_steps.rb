@@ -3,8 +3,16 @@ module PingSteps
     find(".ping-form")
   end
 
-  def pings_list
-    find(".pings-list")
+  def pings_table_selector
+    ".pings-table"
+  end
+
+  def pings_table
+    find(pings_table_selector)
+  end
+
+  def have_pings_table
+    have_selector(pings_table_selector)
   end
 
   def ping_row_selector(ping)
@@ -16,6 +24,6 @@ module PingSteps
   end
 
   def have_ping(ping)
-    has_selector(ping_row_selector(ping))
+    have_selector(ping_row_selector(ping))
   end
 end

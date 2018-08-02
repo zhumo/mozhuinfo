@@ -11,7 +11,11 @@ module Pages
       end
 
       def render_form(&block)
-        form_for([@user_record, @ping_record], &block)
+        form_for([@user_record, @ping_record], html: { class: "ping-form" }, &block)
+      end
+
+      def ping_algorithm_select_options
+        options_for_select(Ping::VALID_ALGORITHMS.map { |alg| [alg.humanize, alg]})
       end
 
       def render_errors(f)

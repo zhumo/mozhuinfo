@@ -1,4 +1,4 @@
-%tr.table-row
+%tr.table-row.ping__row{ data: { ping_id: ping.id } }
   %td.ping__body-preview= ping.message_preview
   %td.ping__algorithm= ping.algorithm
   %td.ping__next-ping-at= ping.formatted_next_ping.presence || "-"

@@ -22,33 +22,44 @@ RSpec.feature 'pings' do
     scenario 'management' do
       visit user_path(user)
 
-      click_on "New ping"
-      expect(current_path).to eq(new_user_ping(user))
+      click_on "New Ping"
+      expect(current_path).to eq(new_user_ping_path(user))
 
       within ping_form do
-        fill_in 'Body', with: 'Happy Birthday'
-        select 'Annual', from: 'Algorithms'
-        click_on 'Create'
+        fill_in 'Message', with: 'Happy Birthday'
+        select 'Yearly', from: 'Algorithm'
+        click_on 'Create Ping'
       end
       expect(current_path).to eq(user_path(user))
 
       pm = user.pings.last
-      within pings_list do
+      within pings_table do
         expect(page).to have_ping(pm)
       end
 
-      within_ping_row(pm) do
+      within ping_row(pm) do
         click_on 'Edit'
       end
       expect(current_path).to eq(edit_user_ping_path(user, pm))
+
+      within ping_form do
+        fill_in 'Message', with: 'Merry Christmas!'
+        select 'Monthly', from: 'Algorithm'
+        click_on 'Update Ping'
+      end
+      expect(current_path).to eq(user_path(user))
+
+      within ping_row(pm) do
+        expect(page).to have_text("Monthly")
+        expect(page).to have_text("Merry Christmas!")
+      end
 
       within ping_row(pm) do
         click_on 'Delete'
       end
       expect(current_path).to eq(user_path(user))
-      within ping_list do
-        expect(page).to_not have_ping(pm)
-      end
+
+      expect(page).to_not have_pings_table
     end
   end
 end
