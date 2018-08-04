@@ -1,7 +1,12 @@
 - if list.pings.present?
+  %h2 Pings
   %table.pings-table.table
     %thead
       %tr
-        %th{colspan: 4} Pings
+        %th Message
+        %th Alg.
+        %th Next Ping
+        %th Status
+        %th
     %tbody
       = list.render_ping_rows

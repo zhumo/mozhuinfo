@@ -14,6 +14,17 @@ module Exhibits
       next_ping_at.to_s
     end
 
+    def status
+      if paused?
+        text = "⏸"
+        title = "Paused"
+      else
+        text = "✅"
+        title = "Active"
+      end
+      content_tag :span, text, title: title, class: "ping-status"
+    end
+
     class << self
       def applicable_to?(object)
         object.is_a?(::Ping)

@@ -2,6 +2,7 @@
   %td.ping__body-preview= ping.message_preview
   %td.ping__algorithm= ping.algorithm
   %td.ping__next-ping-at= ping.formatted_next_ping.presence || "-"
+  %td.ping__status= ping.status
   %td.table-cell__actions
     = list.link_to_edit(ping)
     |
