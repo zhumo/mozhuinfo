@@ -35,6 +35,10 @@ FactoryBot.define do
 
     user
 
+    trait :paused do
+      paused_at { Time.zone.now }
+    end
+
     trait :next_message_scheduled do
       sequence(:next_message_at) { |n| Time.zone.now + n.days }
     end
