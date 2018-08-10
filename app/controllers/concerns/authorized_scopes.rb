@@ -4,7 +4,7 @@ module Concerns
 
     included do
       helper_method :authorized_blog_scope
-      helper_method :authorized_user_scope
+      helper_method :authorized_contact_scope
     end
 
     def authorized_blog_scope
@@ -15,8 +15,8 @@ module Concerns
       scope
     end
 
-    def authorized_user_scope
-      scope = User.all
+    def authorized_contact_scope
+      scope = Contact.all
       unless authenticated?
         scope = scope.none
       end

@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe Ping, type: :model do
 
   # Associations
-  it { should belong_to(:user) }
+  it { should belong_to(:contact) }
 
-  # User
-  it { should validate_presence_of(:user) }
+  # contact
+  it { should validate_presence_of(:contact) }
 
   # body
   it { should validate_presence_of(:message) }

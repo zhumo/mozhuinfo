@@ -24,7 +24,7 @@ FactoryBot.define do
     end
   end
 
-  factory :user do
+  factory :contact do
     sequence(:name) { |n| "Person #{n}" }
     sequence(:phone_number) { |n| "#{n}".rjust(10,"0") }
   end
@@ -33,7 +33,7 @@ FactoryBot.define do
     sequence(:algorithm) { |n| Ping::YEARLY_ALGORITHM }
     sequence(:message) { |n| "Read me! #{n}" }
 
-    user
+    contact
 
     trait :paused do
       paused_at { Time.zone.now }

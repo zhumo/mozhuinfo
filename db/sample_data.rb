@@ -6,8 +6,8 @@ Blog.find_or_create_by!(
   slug: 'sample_blog',
 )
 
-puts 'Sample User...'
-mom = User.find_or_create_by!(
+puts 'Sample Contact...'
+mom = Contact.find_or_create_by!(
   name: "Mom",
   phone_number: "1234567890",
 )

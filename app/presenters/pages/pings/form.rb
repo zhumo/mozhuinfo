@@ -2,16 +2,16 @@ module Pages
   module Pings
     class Form < Page
 
-      attr_reader :user_record, :ping_record
+      attr_reader :contact_record, :ping_record
 
-      def initialize(view_context, user_record, ping_record = nil)
+      def initialize(view_context, contact_record, ping_record = nil)
         initialize_view_context(view_context)
-        @user_record = user_record
+        @contact_record = contact_record
         @ping_record = ping_record || build_ping_record
       end
 
       def render_form(&block)
-        form_for([@user_record, @ping_record], html: { class: "ping-form" }, &block)
+        form_for([@contact_record, @ping_record], html: { class: "ping-form" }, &block)
       end
 
       def ping_algorithm_select_options
@@ -30,7 +30,7 @@ module Pages
       private
 
       def build_ping_record
-        user_record.pings.new
+        contact_record.pings.new
       end
     end
   end

@@ -2,27 +2,27 @@ module Pages
   module Pings
     class New < Page
 
-      attr_reader :user_record
+      attr_reader :contact_record
 
-      def initialize(view_context, user_record)
+      def initialize(view_context, contact_record)
         initialize_view_context(view_context)
-        @user_record = user_record
+        @contact_record = contact_record
       end
 
-      def user
-        @user ||= Exhibit.exhibit_for(view_context, user_record)
+      def contact
+        @contact ||= Exhibit.exhibit_for(view_context, contact_record)
       end
 
       def render_ping_form
         render "form", form: form
       end
 
-      def link_to_user
-        link_to "Back", user
+      def link_to_contact
+        link_to "Back", contact
       end
 
       def after_create_path
-        user
+        contact
       end
 
       private
@@ -30,11 +30,11 @@ module Pages
       delegate :save, to: :form
       alias create save
       def form
-        @form ||= Pages::Pings::Form.new(view_context, user_record)
+        @form ||= Pages::Pings::Form.new(view_context, contact_record)
       end
 
       def ping_record
-        @ping_record ||= user_record.pings.new
+        @ping_record ||= contact_record.pings.new
       end
 
       def ping

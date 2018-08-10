@@ -1,0 +1,14 @@
+%h1 contacts
+
+%table.contacts-table.table
+  %thead
+    %tr
+      %th
+      %th
+
+  %tbody
+    = @page.render_contact_rows
+
+%br
+
+= @page.new_contact_button

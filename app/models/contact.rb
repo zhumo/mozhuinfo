@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Contact < ApplicationRecord
 
   has_many :pings, dependent: :destroy
 

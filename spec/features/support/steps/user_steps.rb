@@ -1,15 +1,15 @@
-module UserSteps
+module ContactSteps
 
-  def user_row_selector(user)
-    ".user-row[data-user-id='#{user.id}']"
+  def contact_row_selector(contact)
+    ".contact-row[data-contact-id='#{contact.id}']"
   end
 
-  def user_row(user)
-    find(user_row_selector(user))
+  def contact_row(contact)
+    find(contact_row_selector(contact))
   end
 
-  def have_user(user)
-    have_selector(user_row_selector(user))
+  def have_contact(contact)
+    have_selector(contact_row_selector(contact))
   end
 
 end

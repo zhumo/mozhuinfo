@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Contact, type: :model do
   describe 'validations' do
-    subject { FactoryBot.build(:user) }
+    subject { FactoryBot.build(:contact) }
 
     # Associations
     it { should have_many(:pings).dependent(:destroy) }

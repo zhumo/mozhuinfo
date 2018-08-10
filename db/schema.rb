@@ -26,30 +26,30 @@ ActiveRecord::Schema.define(version: 20180722191156) do
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", limit: 128, null: false
+    t.string "phone_number", limit: 128, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_contacts_on_name", unique: true
+    t.index ["phone_number"], name: "index_contacts_on_phone_number", unique: true
+  end
+
   create_table "pings", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "contact_id", null: false
     t.string "algorithm", limit: 128, null: false
     t.string "message", limit: 128, null: false
     t.datetime "paused_at"
     t.datetime "next_ping_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_pings_on_user_id"
+    t.index ["contact_id"], name: "index_pings_on_contact_id"
   end
 
   create_table "sessions", id: :serial, force: :cascade do |t|
     t.string "token", limit: 128, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name", limit: 128, null: false
-    t.string "phone_number", limit: 128, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_users_on_name", unique: true
-    t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
   end
 
 end

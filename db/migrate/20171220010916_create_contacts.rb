@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration[5.1]
+class CreateContacts < ActiveRecord::Migration[5.1]
   def change
-    create_table :users do |t|
+    create_table :contacts do |t|
       t.string :name, null: false, limit: 128
       t.string :phone_number, null: false, limit: 128
 

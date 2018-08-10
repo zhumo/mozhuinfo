@@ -1,13 +1,13 @@
 class Ping < ActiveRecord::Base
   extend Concerns::StateManagement
-  belongs_to :user
+  belongs_to :contact
 
   VALID_ALGORITHMS = [
     YEARLY_ALGORITHM = "yearly",
     MONTHLY_ALGORITHM = "monthly",
   ]
 
-  validates :user, presence: true
+  validates :contact, presence: true
   validates :algorithm,
     presence: true,
     length: { maximum: 128 },

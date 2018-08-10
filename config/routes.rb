@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :blogs
 
-  resources :users do
+  resources :contacts do
     resources :pings, only: [:new, :create, :edit, :update, :destroy]
   end
 
