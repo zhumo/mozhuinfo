@@ -1,7 +1,11 @@
-# TODO
+# Setup
 
-- [ ] Feature Specs (Capybara)
-- [ ] Images in blog posts
-- [ ] Embed external content: Youtube, Twitter, Insta, article w/ preview
-- [ ] Blogs appear in reverse chronological order
-- [ ] Pagination for blogs
+1. Install Docker
+2. Run `docker-compose build`
+
+# Develop
+
+Run `docker-compose up` then in a browser, visit `localhost:3000`.
+
+# Test
+Run `docker-compose run app rspec`.
