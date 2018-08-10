@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "=== Ensure server.pid file deleted ==="
+rm -f tmp/pids/server.pid
+
+echo "=== Starting Docker ==="
+docker-compose up
