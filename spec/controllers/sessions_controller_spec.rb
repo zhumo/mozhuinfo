@@ -13,7 +13,7 @@ RSpec.describe SessionsController, type: :controller do
       end
 
       context 'correct username' do
-        let(:params) { { username: 'mozhu888', password: 'password' } }
+        let(:params) { { username: 'mozhu', password: 'password' } }
 
         it { should redirect_to blogs_path }
         it { should set_session[:token] }

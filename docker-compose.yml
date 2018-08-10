@@ -1,0 +1,22 @@
+version: "2"
+
+volumes:
+  db-data:
+    external: false
+
+services:
+  db:
+    image: postgres:9.5
+    env_file: .env
+    volumes:
+      - db-data:/var/lib/postgresql/db-data
+
+  app:
+    env_file: .env
+    build: .
+    volumes:
+      - .:/usr/src/mozhuinfo
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

@@ -21,6 +21,8 @@ class Exhibit < SimpleDelegator
     def exhibits
       [
         Exhibits::Blog,
+        Exhibits::Contact,
+        Exhibits::Ping,
       ]
     end
 

@@ -6,11 +6,16 @@ namespace :db do
     load(sample_data) if sample_data
   end
 
-  desc 'rebuild the database'
-  task rebuild: %w(
-    db:drop
+  desc 'build the database'
+  task build: %w(
     db:setup
     db:sample_data
     db:test:prepare
+  )
+
+  desc 'rebuild the database'
+  task rebuild: %w(
+    db:drop
+    db:build
   )
 end

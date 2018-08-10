@@ -1,0 +1,11 @@
+= form.render_form do |f|
+  = form.render_errors(f)
+
+  .form__field
+    = f.label :message
+    = f.text_field :message, autofocus: true
+  .form__field
+    = f.label :algorithm
+    = f.select :algorithm, form.ping_algorithm_select_options
+  .form__actions
+    = f.submit class: 'button button--blank'

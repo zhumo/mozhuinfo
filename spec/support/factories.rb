@@ -23,4 +23,24 @@ FactoryBot.define do
       created_at { 1.week.ago - 1.hour }
     end
   end
+
+  factory :contact do
+    sequence(:name) { |n| "Person #{n}" }
+    sequence(:phone_number) { |n| "#{n}".rjust(10,"0") }
+  end
+
+  factory :ping do
+    sequence(:algorithm) { |n| Ping::YEARLY_ALGORITHM }
+    sequence(:message) { |n| "Read me! #{n}" }
+
+    contact
+
+    trait :paused do
+      paused_at { Time.zone.now }
+    end
+
+    trait :next_message_scheduled do
+      sequence(:next_message_at) { |n| Time.zone.now + n.days }
+    end
+  end
 end

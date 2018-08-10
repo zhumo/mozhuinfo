@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%h1= @page.contact.name
+%p 📞 #{@page.contact.formatted_phone_number}
+
+= @page.render_pings_list
+
+= @page.new_ping_link
+
+%br
+
+= @page.contacts_index_link
+\|
+= @page.edit_contact_link

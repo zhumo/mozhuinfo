@@ -5,7 +5,7 @@ module Concerns
       # mark_as_deleted
       setter_method_name = "mark_as_#{state_name}".to_sym
       define_method setter_method_name do
-        public_send("#{attribute_name}=", Time.zone.now)
+        public_send(attribute_name) || public_send("#{attribute_name}=", Time.zone.now)
       end
       # delete
       define_method action_name.to_sym do
@@ -40,6 +40,15 @@ module Concerns
       # not_deleted?
       define_method "not_#{check_state_method}".to_sym do
         !public_send("#{state_name}?")
+      end
+      # deleted=
+      define_method "#{state_name}=".to_sym do |should|
+        if should
+          public_send(setter_method_name)
+        else
+          public_send(unsetter_method_name)
+        end
+        should
       end
 
       ### AR SCOPES ###

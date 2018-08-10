@@ -10,26 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215023445) do
+ActiveRecord::Schema.define(version: 20180722191156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blogs", force: :cascade do |t|
-    t.string   "title",        limit: 256, null: false
-    t.text     "body",                     null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "blogs", id: :serial, force: :cascade do |t|
+    t.string "title", limit: 256, null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "published_at"
-    t.string   "summary",      limit: 256, null: false
-    t.string   "slug",         limit: 128
-    t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
+    t.string "summary", limit: 256, null: false
+    t.string "slug", limit: 128, null: false
+    t.index ["slug"], name: "index_blogs_on_slug", unique: true
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.string   "token",      limit: 128, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", limit: 128, null: false
+    t.string "phone_number", limit: 128, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_contacts_on_name", unique: true
+    t.index ["phone_number"], name: "index_contacts_on_phone_number", unique: true
+  end
+
+  create_table "pings", force: :cascade do |t|
+    t.bigint "contact_id", null: false
+    t.string "algorithm", limit: 128, null: false
+    t.string "message", limit: 128, null: false
+    t.datetime "paused_at"
+    t.datetime "next_ping_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_pings_on_contact_id"
+  end
+
+  create_table "sessions", id: :serial, force: :cascade do |t|
+    t.string "token", limit: 128, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -10,4 +10,9 @@ module AuthenticationSteps
     fill_in 'Password', with: password
     click_on 'Log In'
   end
+
+  def expect_authentication_bounce(path)
+    visit path
+    expect(current_path).to eq(login_path)
+  end
 end
