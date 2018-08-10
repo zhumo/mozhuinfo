@@ -4,4 +4,4 @@ echo "=== Ensure server.pid file deleted ==="
 rm -f tmp/pids/server.pid
 
 echo "=== Starting Docker ==="
-docker-compose up
+docker-compose run app rails s -b 0.0.0.0
