@@ -3,7 +3,7 @@ ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0'
-gem 'pg', '~> 0.20'
+gem 'pg', '~> 1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -18,7 +18,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 1.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -53,7 +53,7 @@ group :test do
   gem 'database_cleaner', '~> 1.5'
   gem 'timecop', '~> 0.8'
   gem 'factory_bot_rails', '~> 4.8'
-  gem 'capybara', '~> 2.12'
+  gem 'capybara', '~> 3.5'
   gem 'launchy', '~> 2.4' # ruby wrapper for launching a browser. Enables capybara's save_and_open_page
 end
 

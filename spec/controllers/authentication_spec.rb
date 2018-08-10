@@ -42,7 +42,7 @@ RSpec.describe AuthenticatingController, type: :controller do
 
       context 'session is valid' do
         it 'should succeed' do
-          expect(response).to be_success
+          expect(response).to be_successful
         end
       end
     end
