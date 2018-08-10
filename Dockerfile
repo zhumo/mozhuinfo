@@ -19,3 +19,4 @@ COPY . .
 # you don't have to re-install the whole list of dependencies, as per: http://bradgessler.com/articles/docker-bundler/
 
 EXPOSE 3000
+CMD rails server -b 0.0.0.0
