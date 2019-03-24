@@ -1,4 +1,5 @@
 = form_tag login_path, class: 'login-form' do
+  = hidden_field_tag :redirect_path, redirect: request.referrer
   .form__field
     = label_tag :username
     = text_field_tag :username, nil, autofocus: true

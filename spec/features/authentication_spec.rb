@@ -1,7 +1,6 @@
 require 'feature_spec_helper'
 
 RSpec.feature 'signing in' do
-  include AuthenticationSteps
 
   context 'incorrect credentials' do
     it 'fails' do
