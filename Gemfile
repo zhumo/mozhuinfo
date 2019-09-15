@@ -33,6 +33,8 @@ gem 'haml-rails', '~> 1.0'
 gem 'kramdown', '~> 1.12' # Markdown
 gem 'rouge', '~> 3.0' # Syntax highlighting for markdown
 
+gem 'twilio-ruby', '~> 5.0' # SMS
+
 group :development, :test do
   gem 'pry-rails', '~> 0.3'
   gem 'dotenv-rails', '~> 2.1'
