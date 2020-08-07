@@ -30,7 +30,7 @@ gem 'sdoc', '~> 1.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'haml-rails', '~> 1.0'
-gem 'kramdown', '~> 1.12' # Markdown
+gem 'kramdown', '~> 2.3' # Markdown
 gem 'rouge', '~> 3.0' # Syntax highlighting for markdown
 
 gem 'twilio-ruby', '~> 5.0' # SMS
